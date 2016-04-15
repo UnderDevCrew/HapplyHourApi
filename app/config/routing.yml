@@ -1,3 +1,7 @@
 app:
     resource: "@AppBundle/Controller/"
     type:     annotation
+
+bars:
+    type: rest
+    resource: AppBundle\Controller\BarController
