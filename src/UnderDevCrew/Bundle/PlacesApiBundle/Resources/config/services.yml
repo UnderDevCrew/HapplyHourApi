@@ -1,0 +1,18 @@
+services:
+    underdevcrew.places_api.api_factory:
+        class: Nekland\PlacesApi\Places
+        calls:
+            - [useAuthentication, [PublicApiAccess, [key: '%google_places_api_key%']]]
+
+    underdevcrew.places_api.places:
+        class: Nekland\PlacesApi\Api\Places
+        factory: ["@underdevcrew.places_api.api_factory", getPlacesApi]
+
+    underdevcrew.places_api.search:
+        class: Nekland\PlacesApi\Api\Search
+        factory: ["@underdevcrew.places_api.api_factory", getSearchApi]
+
+    underdevcrew.places_api.autocomplete:
+        class: Nekland\PlacesApi\Api\Autocomplete
+        factory: ["@underdevcrew.places_api.api_factory", getAutocompleteApi]
+
