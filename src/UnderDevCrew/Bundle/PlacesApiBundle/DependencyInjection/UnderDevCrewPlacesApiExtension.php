@@ -14,5 +14,11 @@ class UnderDevCrewPlacesApiExtension extends Extension
     {
         $loader = new YamlFileLoader($container, new FileLocator(__DIR__ . '/../Resources/config'));
         $loader->load('services.yml');
+
+        $container->getDefinition('underdevcrew.places_api.api_factory')->addMethodCall(
+            'useAuthentication',
+            ['PublicApiAccess', ['key' => '%google_places_api_key%']]
+        );
+
     }
 }

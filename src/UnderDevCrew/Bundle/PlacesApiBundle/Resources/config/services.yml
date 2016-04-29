@@ -1,12 +1,13 @@
 services:
     underdevcrew.places_api.api_factory:
         class: Nekland\PlacesApi\Places
-        calls:
-            - [useAuthentication, [PublicApiAccess, [key: '%google_places_api_key%']]]
+        # authentication is done in bundle extension class.
 
     underdevcrew.places_api.places:
         class: Nekland\PlacesApi\Api\Places
         factory: ["@underdevcrew.places_api.api_factory", getPlacesApi]
+        calls:
+            - ['setTransformer', ['@underdevcrew.places_api.model.transformer']]
 
     underdevcrew.places_api.search:
         class: Nekland\PlacesApi\Api\Search
@@ -16,3 +17,9 @@ services:
         class: Nekland\PlacesApi\Api\Autocomplete
         factory: ["@underdevcrew.places_api.api_factory", getAutocompleteApi]
 
+    underdevcrew.places_api.model.transformer:
+        class: UnderDevCrew\Bundle\Transformer\PlacesModelTransformer
+        arguments: [ "@underdevcrew.places_api.model.factory" ]
+
+    underdevcrew.places_api.model.factory:
+        class: UnderDevCrew\Bundle\PlacesApiBundle\Factory\PlacesModelFactory
