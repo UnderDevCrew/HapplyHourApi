@@ -2,7 +2,7 @@
 
 namespace UnderDevCrew\Bundle\PlacesApiBundle\Factory;
 
-use UnderDevCrew\Bundle\Model\PlacesModel;
+use UnderDevCrew\Bundle\PlacesApiBundle\Model\PlacesModel;
 
 class PlacesModelFactory
 {
@@ -12,16 +12,19 @@ class PlacesModelFactory
      */
     public function create(array $dataFromApi)
     {
+        $model = new PlacesModel();
+
         $result = $dataFromApi['result'];
-        return (new PlacesModel())
-            ->setFullAddress($result['formatted_address'])
-            ->setLatitude($result['geometry']['location']['lat'])
-            ->setLongitude($result['geometry']['location']['lng'])
-            ->setMapsUrl($result['url'])
-            ->setUrl($result['website'])
-            ->setNote($result['rating'])
-            ->setShortAddress($result['vicinity'])
-            ->setPhoneNumber($result['international_phone_number'])
-        ;
+
+        $model->fullAddress = $result['formatted_address'];
+        $model->latitude = $result['geometry']['location']['lat'];
+        $model->longitude = $result['geometry']['location']['lng'];
+        $model->mapsUrl = $result['url'];
+        $model->url = $result['website'];
+        $model->note = $result['rating'];
+        $model->shortAddress = $result['vicinity'];
+        $model->phoneNumber = $result['international_phone_number'];
+
+        return $model;
     }
 }
