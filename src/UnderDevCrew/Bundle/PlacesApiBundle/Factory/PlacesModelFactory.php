@@ -5,7 +5,7 @@ namespace UnderDevCrew\Bundle\PlacesApiBundle\Factory;
 use Symfony\Component\PropertyAccess\PropertyAccessor;
 use UnderDevCrew\Bundle\PlacesApiBundle\Model\PlacesModel;
 
-class PlacesModelFactory
+class PlacesModelFactory implements ModelFactoryInterface
 {
     /**
      * @var PropertyAccessor $propertyAccessor

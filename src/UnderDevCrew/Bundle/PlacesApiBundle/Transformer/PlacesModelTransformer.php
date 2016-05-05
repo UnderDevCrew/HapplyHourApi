@@ -1,29 +1,12 @@
 <?php
 
-namespace UnderDevCrew\Bundle\Transformer;
+namespace UnderDevCrew\Bundle\PlacesApiBundle\Transformer;
 
-use Nekland\BaseApi\Transformer\TransformerInterface;
-use UnderDevCrew\Bundle\PlacesApiBundle\Factory\PlacesModelFactory;
-
-class PlacesModelTransformer implements TransformerInterface
+class PlacesModelTransformer extends AbstractModelTransformer
 {
-    /**
-     * @var PlacesModelFactory
-     */
-    private $modelFactory;
-
-    /**
-     * @param PlacesModelFactory $placesModelFactory
-     */
-    public function __construct(PlacesModelFactory $placesModelFactory)
+    public function transform($rawData, $type = self::UNKNOWN)
     {
-        $this->modelFactory = $placesModelFactory;
-    }
-
-
-    public function transform($data, $type = self::UNKNOWN)
-    {
-        $jsonData = json_decode($data, true);
-        return $this->modelFactory->create($jsonData);
+        $arrayData = json_decode($rawData, true);
+        return $this->modelFactory->create($arrayData['result']);
     }
 }
