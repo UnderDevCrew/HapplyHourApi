@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "1afe46cadc06926310b1e32dd0db6599",
-    "content-hash": "c1d4fd380543d16ca67312d5d8a62f74",
+    "hash": "263855426fd91641acf6fc89c5bb4fe5",
+    "content-hash": "e994de0bbe8d587c52408ad3ab0f18d1",
     "packages": [
         {
             "name": "doctrine/annotations",
@@ -1375,13 +1375,13 @@
             "version": "dev-master",
             "source": {
                 "type": "git",
-                "url": "https://github.com/pimolo/BaseApi.git",
-                "reference": "1c0d93a4a70ffb8c01f2eed7fbe68dc57f2c6a48"
+                "url": "https://github.com/Nekland/BaseApi.git",
+                "reference": "d4a849f230d11e983bcbf02cb95ac3b93452dcbd"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/pimolo/BaseApi/zipball/1c0d93a4a70ffb8c01f2eed7fbe68dc57f2c6a48",
-                "reference": "1c0d93a4a70ffb8c01f2eed7fbe68dc57f2c6a48",
+                "url": "https://api.github.com/repos/Nekland/BaseApi/zipball/d4a849f230d11e983bcbf02cb95ac3b93452dcbd",
+                "reference": "d4a849f230d11e983bcbf02cb95ac3b93452dcbd",
                 "shasum": ""
             },
             "require": {
@@ -1408,6 +1408,7 @@
                     "Nekland\\": "lib/"
                 }
             },
+            "notification-url": "https://packagist.org/downloads/",
             "license": [
                 "MIT"
             ],
@@ -1429,10 +1430,7 @@
                 "base",
                 "nekland"
             ],
-            "support": {
-                "source": "https://github.com/pimolo/BaseApi/tree/master"
-            },
-            "time": "2016-04-04 01:52:48"
+            "time": "2016-04-26 21:04:16"
         },
         {
             "name": "nekland/places-api",

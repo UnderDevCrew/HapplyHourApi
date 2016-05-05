@@ -73,10 +73,6 @@
         {
             "type": "vcs",
             "url": "https://github.com/pimolo/PlacesApi"
-        },
-        {
-            "type": "vcs",
-            "url": "https://github.com/pimolo/BaseApi"
         }
     ]
 }
