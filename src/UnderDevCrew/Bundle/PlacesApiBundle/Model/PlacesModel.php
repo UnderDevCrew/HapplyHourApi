@@ -13,6 +13,11 @@ class PlacesModel
     /**
      * @var string
      */
+    public $name;
+
+    /**
+     * @var string
+     */
     public $latitude;
 
     /**
