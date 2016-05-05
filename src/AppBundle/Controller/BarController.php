@@ -3,17 +3,47 @@
 namespace AppBundle\Controller;
 
 use AppBundle\Entity\Bar;
-use FOS\RestBundle\Controller\FOSRestController;
-use FOS\RestBundle\Routing\ClassResourceInterface;
-use Nekland\PlacesApi\Places;
+use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\HttpKernel\Exception\BadRequestHttpException;
+use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\HttpFoundation\JsonResponse;
+use Symfony\Component\Routing\Exception\MissingMandatoryParametersException;
 
-class BarController extends FOSRestController implements ClassResourceInterface
+class BarController extends Controller
 {
-    public function cgetAction()
+    /**
+     * @Route("/bars", name="app_bars_all")
+     * @param Request $request
+     * @return JsonResponse
+     */
+    public function searchBarsAction(Request $request)
     {
-        $bars = $this->getDoctrine()->getRepository('AppBundle:Bar')->findAll();
-        $view = $this->view($bars, 200);
+        $latitude = $request->query->get('latitude');
+        $longitude = $request->query->get('longitude');
 
-        return $this->handleView($view);
+        if (empty($latitude) || empty($longitude)) {
+            throw new BadRequestHttpException('Missing longitude or latitude');
+        }
+        $places = $this->get('underdevcrew.places_api.search')->searchLocation(
+            $latitude . ',' . $longitude,
+            1000
+        );
+
+
+        return new JsonResponse($places);
+    }
+
+    /**
+     * @Route("/bars/{id}", name="app_bars_one")
+     * @param int $id
+     * @return JsonResponse
+     */
+    public function getOneBarAction($id)
+    {
+        $place = $this->get('underdevcrew.places_api.places')->getPlaceById($id);
+
+        return new JsonResponse($place);
     }
 }
