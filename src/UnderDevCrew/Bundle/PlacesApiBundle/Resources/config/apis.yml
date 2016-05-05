@@ -1,0 +1,17 @@
+services:
+    underdevcrew.places_api.api_factory:
+        class: Nekland\PlacesApi\Places
+        # authentication is done in bundle extension class.
+
+
+    underdevcrew.places_api.places:
+        class: Nekland\PlacesApi\Api\Places
+        factory: ["@underdevcrew.places_api.api_factory", getPlacesApi]
+        calls:
+            - ['setTransformer', ['@underdevcrew.places_api.places.model.transformer']]
+
+    underdevcrew.places_api.search:
+        class: Nekland\PlacesApi\Api\Search
+        factory: ["@underdevcrew.places_api.api_factory", getSearchApi]
+        calls:
+            - ['setTransformer', ['@underdevcrew.places_api.search.model.transformer']]

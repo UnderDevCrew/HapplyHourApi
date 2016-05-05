@@ -1,0 +1,8 @@
+services:
+    underdevcrew.places_api.places.model.transformer:
+        class: UnderDevCrew\Bundle\PlacesApiBundle\Transformer\PlacesModelTransformer
+        arguments: [ "@underdevcrew.places_api.places.model.factory" ]
+
+    underdevcrew.places_api.search.model.transformer:
+        class: UnderDevCrew\Bundle\PlacesApiBundle\Transformer\SearchModelTransformer
+        arguments: [ "@underdevcrew.places_api.search.model.factory" ]
