@@ -25,17 +25,15 @@ class PlacesModelFactory implements ModelFactoryInterface
     {
         $model = new PlacesModel();
 
-        $result = $dataFromApi;
-
-        $this->propertyAccessor->setValue($model, 'name', isset($result['name']) ? $result['name'] : null);
-        $this->propertyAccessor->setValue($model, 'fullAddress', isset($result['formatted_address']) ? $result['formatted_address'] : null);
-        $this->propertyAccessor->setValue($model, 'latitude', isset($result['geometry']['location']['lat']) ? $result['geometry']['location']['lat'] : null);
-        $this->propertyAccessor->setValue($model, 'longitude', isset($result['geometry']['location']['lng']) ? $result['geometry']['location']['lng'] : null);
-        $this->propertyAccessor->setValue($model, 'shortAddress', isset($result['vicinity']) ? $result['vicinity'] : null);
-        $this->propertyAccessor->setValue($model, 'mapsUrl', isset($result['url']) ? $result['url'] : null);
-        $this->propertyAccessor->setValue($model, 'url', isset($result['website']) ? $result['website'] : null);
-        $this->propertyAccessor->setValue($model, 'note', isset($result['rating']) ? $result['rating'] : null);
-        $this->propertyAccessor->setValue($model, 'phoneNumber', isset($result['international_phone_number']) ? $result['international_phone_number'] : null);
+        $this->propertyAccessor->setValue($model, 'name', isset($dataFromApi['name']) ? $dataFromApi['name'] : null);
+        $this->propertyAccessor->setValue($model, 'fullAddress', isset($dataFromApi['formatted_address']) ? $dataFromApi['formatted_address'] : null);
+        $this->propertyAccessor->setValue($model, 'latitude', isset($dataFromApi['geometry']['location']['lat']) ? $dataFromApi['geometry']['location']['lat'] : null);
+        $this->propertyAccessor->setValue($model, 'longitude', isset($dataFromApi['geometry']['location']['lng']) ? $dataFromApi['geometry']['location']['lng'] : null);
+        $this->propertyAccessor->setValue($model, 'shortAddress', isset($dataFromApi['vicinity']) ? $dataFromApi['vicinity'] : null);
+        $this->propertyAccessor->setValue($model, 'mapsUrl', isset($dataFromApi['url']) ? $dataFromApi['url'] : null);
+        $this->propertyAccessor->setValue($model, 'url', isset($dataFromApi['website']) ? $dataFromApi['website'] : null);
+        $this->propertyAccessor->setValue($model, 'note', isset($dataFromApi['rating']) ? $dataFromApi['rating'] : null);
+        $this->propertyAccessor->setValue($model, 'phoneNumber', isset($dataFromApi['international_phone_number']) ? $dataFromApi['international_phone_number'] : null);
 
         return $model;
     }

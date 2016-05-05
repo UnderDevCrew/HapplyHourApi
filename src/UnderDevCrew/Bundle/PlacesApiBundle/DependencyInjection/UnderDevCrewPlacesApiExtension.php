@@ -2,7 +2,6 @@
 
 namespace UnderDevCrew\Bundle\PlacesApiBundle\DependencyInjection;
 
-
 use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Symfony\Component\DependencyInjection\Loader\YamlFileLoader;
 use Symfony\Component\Config\FileLocator;
@@ -19,6 +18,5 @@ class UnderDevCrewPlacesApiExtension extends Extension
             'useAuthentication',
             ['PublicApiAccess', ['key' => '%google_places_api_key%']]
         );
-
     }
 }

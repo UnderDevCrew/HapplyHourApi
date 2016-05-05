@@ -2,14 +2,11 @@
 
 namespace AppBundle\Controller;
 
-use AppBundle\Entity\Bar;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpKernel\Exception\BadRequestHttpException;
 use Symfony\Component\Routing\Annotation\Route;
-use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpFoundation\JsonResponse;
-use Symfony\Component\Routing\Exception\MissingMandatoryParametersException;
 
 class BarController extends Controller
 {
@@ -30,7 +27,6 @@ class BarController extends Controller
             $latitude . ',' . $longitude,
             1000
         );
-
 
         return new JsonResponse($places);
     }
