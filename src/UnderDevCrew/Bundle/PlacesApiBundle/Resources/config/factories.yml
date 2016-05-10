@@ -1,0 +1,11 @@
+services:
+    underdevcrew.places_api.places.model.factory:
+        class: UnderDevCrew\Bundle\PlacesApiBundle\Factory\PlacesModelFactory
+        arguments:
+            - "@property_accessor"
+
+    underdevcrew.places_api.search.model.factory:
+        class: UnderDevCrew\Bundle\PlacesApiBundle\Factory\SearchModelFactory
+        arguments:
+            - "@property_accessor"
+            - "@underdevcrew.places_api.places.model.factory"

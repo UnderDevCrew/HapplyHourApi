@@ -1,0 +1,10 @@
+AppBundle\Entity\Bar:
+    bar_{1..10}:
+        name: <name()>
+        placesId: <uuid()>
+        latitude: <latitude()>
+        longitude: <longitude()>
+        authorsOpinion: <sentence()>
+        happyhourStart: <dateTime()>
+        happyhourEnd: <dateTime()>
+        note: <numberBetween(0, 5)>

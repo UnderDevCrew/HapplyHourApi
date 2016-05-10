@@ -1,0 +1,5 @@
+AppBundle\Entity\Beer:
+    beer_{1..10}:
+        name: <name()>
+        price: <randomFloat(2, 2, 15)>
+        bar: '@bar*'
