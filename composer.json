@@ -32,7 +32,8 @@
         "phpunit/phpunit": "^5.3",
         "nekland/base-api": "dev-master",
         "nekland/places-api": "dev-master",
-        "guzzlehttp/guzzle": "^5.3"
+        "guzzlehttp/guzzle": "^5.3",
+        "nelmio/cors-bundle": "^1.4"
     },
     "require-dev": {
         "sensio/generator-bundle": "^3.0",
