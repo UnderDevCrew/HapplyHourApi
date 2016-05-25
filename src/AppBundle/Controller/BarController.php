@@ -25,7 +25,8 @@ class BarController extends Controller
         }
         $places = $this->get('underdevcrew.places_api.search')->searchLocation(
             $latitude . ',' . $longitude,
-            1000
+            1000,
+            ['types' => 'bar']
         );
 
         return new JsonResponse($places);
