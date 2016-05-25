@@ -34,6 +34,7 @@ class PlacesModelFactory implements ModelFactoryInterface
         $this->propertyAccessor->setValue($model, 'url', isset($dataFromApi['website']) ? $dataFromApi['website'] : null);
         $this->propertyAccessor->setValue($model, 'note', isset($dataFromApi['rating']) ? $dataFromApi['rating'] : null);
         $this->propertyAccessor->setValue($model, 'phoneNumber', isset($dataFromApi['international_phone_number']) ? $dataFromApi['international_phone_number'] : null);
+        $this->propertyAccessor->setValue($model, 'placeId', isset($dataFromApi['place_id']) ? $dataFromApi['place_id'] : null);
 
         return $model;
     }

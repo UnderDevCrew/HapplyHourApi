@@ -8,11 +8,6 @@ class PlacesModel
     /**
      * @var string
      */
-    public $id;
-
-    /**
-     * @var string
-     */
     public $name;
 
     /**
@@ -54,4 +49,9 @@ class PlacesModel
      * @var string
      */
     public $url;
+
+    /**
+     * @var string
+     */
+    public $placeId;
 }
